@@ -1,128 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AMAN ❤️</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', cursive;
-    }
+<meta charset="UTF-8">
+<title>Good Night Aman</title>
 
-    body {
-      height: 100vh;
-      background: radial-gradient(circle at top, #ff9a9e, #fad0c4);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap');
 
-    .container {
-      text-align: center;
-      color: #fff;
-      z-index: 2;
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    .name {
-      font-size: 4.5rem;
-      letter-spacing: 10px;
-      display: flex;
-      justify-content: center;
-    }
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb);
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    .name span {
-      display: inline-block;
-      animation: bounce 1.5s infinite;
-    }
+/* Main Card */
+.card {
+    width: 90%;
+    max-width: 420px;
+    height: 550px;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(15px);
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    text-align: center;
+    padding: 30px;
+    position: relative;
+    animation: cardPop 1.5s ease;
+}
 
-    .name span:nth-child(1) { animation-delay: 0s; }
-    .name span:nth-child(2) { animation-delay: 0.2s; }
-    .name span:nth-child(3) { animation-delay: 0.4s; }
-    .name span:nth-child(4) { animation-delay: 0.6s; }
+@keyframes cardPop {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
 
-    .message {
-      margin-top: 20px;
-      font-size: 1.5rem;
-      animation: fadeIn 3s ease-in-out;
-    }
+/* Animated Name */
+.name {
+    font-family: 'Pacifico', cursive;
+    font-size: 3.5em;
+    color: #ff2e63;
+    animation: nameGlow 2s infinite alternate, floatName 4s infinite ease-in-out;
+}
 
-    @keyframes bounce {
-      0%, 100% {
-        transform: translateY(0) scale(1);
-        text-shadow: 0 0 10px #fff, 0 0 20px #ff4d6d;
-      }
-      50% {
-        transform: translateY(-20px) scale(1.2);
-        text-shadow: 0 0 20px #fff, 0 0 40px #ff758f;
-      }
-    }
-      to {
-        text-shadow: 0 0 20px #fff, 0 0 40px #ff758f, 0 0 60px #ff758f;
-      }
-    }
+@keyframes nameGlow {
+    from { text-shadow: 0 0 10px #ff2e63; }
+    to { text-shadow: 0 0 30px #ff85a2; }
+}
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+@keyframes floatName {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
 
-    /* Floating Flowers */
-    .flower {
-      position: absolute;
-      bottom: -20px;
-      font-size: 22px;
-      animation: floatUp linear infinite;
-      opacity: 0.9;
-    }
+/* Message */
+.message {
+    margin-top: 15px;
+    font-size: 1.4em;
+    color: #6a0572;
+    animation: fadeSlide 2s ease;
+}
 
-    @keyframes floatUp {
-      from {
-        transform: translateY(0) rotate(0deg) scale(1);
+@keyframes fadeSlide {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Teddy */
+.teddy {
+    font-size: 110px;
+    margin-top: 20px;
+    animation: teddyDance 2.5s infinite;
+}
+
+@keyframes teddyDance {
+    0%,100% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    75% { transform: rotate(-5deg); }
+}
+
+/* Flower */
+.flower {
+    font-size: 70px;
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    animation: spin 6s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Heart */
+.heart {
+    font-size: 70px;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    animation: heartBeat 1.3s infinite;
+}
+
+@keyframes heartBeat {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.4); }
+}
+
+/* Floating hearts */
+.float-heart {
+    position: absolute;
+    bottom: -20px;
+    font-size: 22px;
+    animation: floatUp 6s linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0);
         opacity: 1;
-      }
-      to {
-        transform: translateY(-110vh) rotate(360deg) scale(1.4);
-        opacity: 0;
-      }
     }
-      to {
-        transform: translateY(-110vh) scale(1.5);
+    to {
+        transform: translateY(-120vh);
         opacity: 0;
-      }
     }
-  </style>
+}
+
+/* Stars */
+.star {
+    position: absolute;
+    background: white;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+    from { opacity: 0.3; }
+    to { opacity: 1; }
+}
+</style>
 </head>
+
 <body>
-  <div class="container">
-    <div class="name">
-      <span>A</span><span>M</span><span>A</span><span>N</span>
-    </div>
-    <div class="message">
-      For the girl who makes my heart smile ❤️<br />
-      You are my favorite notification 💕
-    </div>
-  </div>
 
-  <script>
-    function createFlower() {
-      const flower = document.createElement('div');
-      flower.classList.add('flower');
-      const flowers = ['🌸','🌹','🌺','🌷','💐'];
-      flower.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
-      flower.style.left = Math.random() * 100 + 'vw';
-      flower.style.animationDuration = 4 + Math.random() * 4 + 's';
-      document.body.appendChild(flower);
+<div class="card">
+    <div class="name">Aman</div>
+<div class="message">
+    Good Morning 🌸<br>
+    May Your Day Be as Lovely as You 💖
+</div>
+    <div class="teddy">🧸</div>
 
-      setTimeout(() => {
-        flower.remove();
-      }, 8000);
-    }
+    <div class="flower">🌸</div>
+    <div class="heart">💖</div>
+</div>
 
-    setInterval(createFlower, 350);
-  </script>
+<script>
+// Floating hearts
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "float-heart";
+    heart.innerHTML = "💗";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 7000);
+}
+setInterval(createHeart, 400);
+
+// Stars
+for (let i = 0; i < 40; i++) {
+    const star = document.createElement("div");
+    star.className = "star";
+    star.style.top = Math.random() * 100 + "vh";
+    star.style.left = Math.random() * 100 + "vw";
+    star.style.animationDuration = (Math.random() * 2 + 1) + "s";
+    document.body.appendChild(star);
+}
+</script>
+
 </body>
 </html>
