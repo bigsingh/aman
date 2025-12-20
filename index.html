@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Good Night Aman</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Good Morning Aman</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap');
@@ -14,26 +15,27 @@
 }
 
 body {
-    height: 100vh;
+    min-height: 100vh;
     background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb);
     overflow: hidden;
     font-family: 'Poppins', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
 /* Main Card */
 .card {
-    width: 90%;
+    width: 100%;
     max-width: 420px;
-    height: 550px;
-    background: rgba(255,255,255,0.2);
+    min-height: 520px;
+    background: rgba(255,255,255,0.25);
     backdrop-filter: blur(15px);
     border-radius: 30px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.2);
     text-align: center;
-    padding: 30px;
+    padding: 25px;
     position: relative;
     animation: cardPop 1.5s ease;
 }
@@ -46,7 +48,7 @@ body {
 /* Animated Name */
 .name {
     font-family: 'Pacifico', cursive;
-    font-size: 3.5em;
+    font-size: 3rem;
     color: #ff2e63;
     animation: nameGlow 2s infinite alternate, floatName 4s infinite ease-in-out;
 }
@@ -64,9 +66,10 @@ body {
 /* Message */
 .message {
     margin-top: 15px;
-    font-size: 1.4em;
+    font-size: 1.3rem;
     color: #6a0572;
     animation: fadeSlide 2s ease;
+    line-height: 1.4;
 }
 
 @keyframes fadeSlide {
@@ -76,7 +79,7 @@ body {
 
 /* Teddy */
 .teddy {
-    font-size: 110px;
+    font-size: 95px;
     margin-top: 20px;
     animation: teddyDance 2.5s infinite;
 }
@@ -89,10 +92,10 @@ body {
 
 /* Flower */
 .flower {
-    font-size: 70px;
+    font-size: 60px;
     position: absolute;
-    bottom: 30px;
-    left: 30px;
+    bottom: 20px;
+    left: 20px;
     animation: spin 6s linear infinite;
 }
 
@@ -103,10 +106,10 @@ body {
 
 /* Heart */
 .heart {
-    font-size: 70px;
+    font-size: 60px;
     position: absolute;
-    bottom: 30px;
-    right: 30px;
+    bottom: 20px;
+    right: 20px;
     animation: heartBeat 1.3s infinite;
 }
 
@@ -149,6 +152,30 @@ body {
     from { opacity: 0.3; }
     to { opacity: 1; }
 }
+
+/* 📱 Mobile specific tweaks */
+@media (max-width: 480px) {
+    .name {
+        font-size: 2.5rem;
+    }
+
+    .message {
+        font-size: 1.1rem;
+    }
+
+    .teddy {
+        font-size: 80px;
+    }
+
+    .flower, .heart {
+        font-size: 50px;
+    }
+
+    .card {
+        min-height: 480px;
+        padding: 20px;
+    }
+}
 </style>
 </head>
 
@@ -156,10 +183,12 @@ body {
 
 <div class="card">
     <div class="name">Aman</div>
-<div class="message">
-    Good Morning 🌸<br>
-    May Your Day Be as Lovely as You 💖
-</div>
+
+    <div class="message">
+        Good Morning 🌸<br>
+        May Your Day Be as Lovely as You 💖
+    </div>
+
     <div class="teddy">🧸</div>
 
     <div class="flower">🌸</div>
@@ -178,10 +207,10 @@ function createHeart() {
 
     setTimeout(() => heart.remove(), 7000);
 }
-setInterval(createHeart, 400);
+setInterval(createHeart, 500);
 
 // Stars
-for (let i = 0; i < 40; i++) {
+for (let i = 0; i < 35; i++) {
     const star = document.createElement("div");
     star.className = "star";
     star.style.top = Math.random() * 100 + "vh";
