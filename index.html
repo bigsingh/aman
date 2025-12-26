@@ -3,220 +3,256 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Good Morning Aman</title>
+<title>Happy New Year Aman</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&family=Dancing+Script:wght@600&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-body {
-    min-height: 100vh;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb);
-    overflow: hidden;
-    font-family: 'Poppins', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+body{
+    height:100vh;
+    background:linear-gradient(135deg,#ffafbd,#ffc3a0);
+    font-family:'Poppins',sans-serif;
+    overflow:hidden;
+    color:#fff;
 }
 
-/* Main Card */
-.card {
-    width: 100%;
-    max-width: 420px;
-    min-height: 520px;
-    background: rgba(255,255,255,0.25);
-    backdrop-filter: blur(15px);
-    border-radius: 30px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-    text-align: center;
-    padding: 25px;
-    position: relative;
-    animation: cardPop 1.5s ease;
+/* Screens */
+.screen{
+    position:absolute;
+    width:100%;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    transition:transform 1s ease;
+    padding:20px;
 }
 
-@keyframes cardPop {
-    from { transform: scale(0.7); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
+/* Start Screen */
+.start{
+    background:linear-gradient(135deg,#fbc2eb,#a6c1ee);
 }
 
-/* Animated Name */
-.name {
-    font-family: 'Pacifico', cursive;
-    font-size: 3rem;
-    color: #ff2e63;
-    animation: nameGlow 2s infinite alternate, floatName 4s infinite ease-in-out;
+.title{
+    font-family:'Pacifico',cursive;
+    font-size:2.6rem;
+    text-shadow:0 0 20px rgba(255,255,255,0.7);
 }
 
-@keyframes nameGlow {
-    from { text-shadow: 0 0 10px #ff2e63; }
-    to { text-shadow: 0 0 30px #ff85a2; }
+.name{
+    margin-top:10px;
+    font-family:'Dancing Script',cursive;
+    font-size:2.5rem;
+    color:#fff4d6;
+    letter-spacing:2px;
+    animation:glowName 2s infinite alternate;
 }
 
-@keyframes floatName {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+@keyframes glowName{
+    from{text-shadow:0 0 10px #fff}
+    to{text-shadow:0 0 25px #ffd6e8}
+}
+
+.swipe{
+    margin-top:40px;
+    font-size:1.1rem;
+    animation:swipeHint 1.5s infinite;
+}
+
+@keyframes swipeHint{
+    0%{transform:translateY(0);opacity:.5}
+    50%{transform:translateY(-10px);opacity:1}
+    100%{transform:translateY(0);opacity:.5}
+}
+
+/* Message Screen */
+.messageScreen{
+    background:linear-gradient(135deg,#ffdde1,#ee9ca7);
+    transform:translateY(100%);
+}
+
+/* Card */
+.card{
+    position:relative;
+    background:rgba(255,255,255,0.25);
+    backdrop-filter:blur(15px);
+    border-radius:32px;
+    padding:40px 30px;
+    max-width:380px;
+    width:100%;
+    animation:fadeUp 1.5s ease;
+}
+
+@keyframes fadeUp{
+    from{opacity:0;transform:translateY(30px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+/* Side Teddies */
+.side-teddy{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:55px;
+    animation:teddyFloat 3s ease-in-out infinite;
+}
+
+.side-teddy.left{
+    left:-38px;
+}
+
+.side-teddy.right{
+    right:-38px;
+}
+
+@keyframes teddyFloat{
+    0%,100%{transform:translateY(-50%)}
+    50%{transform:translateY(-60%)}
 }
 
 /* Message */
-.message {
-    margin-top: 15px;
-    font-size: 1.3rem;
-    color: #6a0572;
-    animation: fadeSlide 2s ease;
-    line-height: 1.4;
+.msgTitle{
+    font-family:'Pacifico',cursive;
+    font-size:2rem;
 }
 
-@keyframes fadeSlide {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+.msg{
+    margin-top:15px;
+    font-size:1.05rem;
+    line-height:1.6;
+    color:#fffaf0;
 }
 
-/* Teddy */
-.teddy {
-    font-size: 95px;
-    margin-top: 20px;
-    animation: teddyDance 2.5s infinite;
+/* Floating hearts & flowers */
+.float{
+    position:absolute;
+    bottom:-20px;
+    font-size:22px;
+    animation:floatUp 6s linear infinite;
 }
 
-@keyframes teddyDance {
-    0%,100% { transform: rotate(0deg); }
-    25% { transform: rotate(5deg); }
-    75% { transform: rotate(-5deg); }
+@keyframes floatUp{
+    from{transform:translateY(0);opacity:1}
+    to{transform:translateY(-120vh);opacity:0}
 }
 
-/* Flower */
-.flower {
-    font-size: 60px;
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    animation: spin 6s linear infinite;
+/* Firecracker */
+.spark{
+    position:absolute;
+    width:6px;
+    height:6px;
+    background:#fff;
+    border-radius:50%;
+    animation:explode 1s linear forwards;
 }
 
-@keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+@keyframes explode{
+    from{transform:translate(0,0);opacity:1}
+    to{transform:translate(var(--x),var(--y));opacity:0}
 }
 
-/* Heart */
-.heart {
-    font-size: 60px;
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    animation: heartBeat 1.3s infinite;
-}
-
-@keyframes heartBeat {
-    0%,100% { transform: scale(1); }
-    50% { transform: scale(1.4); }
-}
-
-/* Floating hearts */
-.float-heart {
-    position: absolute;
-    bottom: -20px;
-    font-size: 22px;
-    animation: floatUp 6s linear infinite;
-    opacity: 0.8;
-}
-
-@keyframes floatUp {
-    from {
-        transform: translateY(0);
-        opacity: 1;
-    }
-    to {
-        transform: translateY(-120vh);
-        opacity: 0;
+/* Mobile */
+@media(max-width:480px){
+    .title{font-size:2.2rem}
+    .name{font-size:2.1rem}
+    .side-teddy{
+        font-size:45px;
+        left:-28px;
+        right:-28px;
     }
 }
 
-/* Stars */
-.star {
-    position: absolute;
-    background: white;
-    width: 2px;
-    height: 2px;
-    border-radius: 50%;
-    animation: twinkle 2s infinite alternate;
-}
-
-@keyframes twinkle {
-    from { opacity: 0.3; }
-    to { opacity: 1; }
-}
-
-/* 📱 Mobile specific tweaks */
-@media (max-width: 480px) {
-    .name {
-        font-size: 2.5rem;
-    }
-
-    .message {
-        font-size: 1.1rem;
-    }
-
-    .teddy {
-        font-size: 80px;
-    }
-
-    .flower, .heart {
-        font-size: 50px;
-    }
-
-    .card {
-        min-height: 480px;
-        padding: 20px;
-    }
+.swipe-teddy{
+    font-size:55px;
+    animation:teddyGuide 1.5s infinite;
 }
 </style>
 </head>
 
 <body>
 
-<div class="card">
+<!-- Start Screen -->
+<div class="screen start" id="start">
+    <div class="title">Happy New Year</div>
     <div class="name">Aman</div>
+    <div class="swipe-teddy">🧸</div>
+    <div class="swipe">⬆ Swipe Up ⬆</div>
+</div>
 
-    <div class="message">
-        Good Morning 🌸<br>
-        May Your Day Be as Lovely as You 💖
+<!-- Message Screen -->
+<div class="screen messageScreen" id="messageScreen">
+    <div class="card">
+
+        <!-- Beautiful Teddies -->
+        <div class="side-teddy left">🧸</div>
+        <div class="side-teddy right">🧸</div>
+
+        <div class="msgTitle">Welcome 2026 💖</div>
+        <div class="msg">
+            Naya saal tumhari zindagi mein<br>
+            khushiyan, pyaar aur sukoon le aaye 🌸<br><br>
+            Main dil se chahta hoon ki<br>
+            har muskaan tumhari wajah se ho 💕<br><br>
+            Happy New Year Aman ✨
+        </div>
     </div>
-
-    <div class="teddy">🧸</div>
-
-    <div class="flower">🌸</div>
-    <div class="heart">💖</div>
 </div>
 
 <script>
-// Floating hearts
-function createHeart() {
-    const heart = document.createElement("div");
-    heart.className = "float-heart";
-    heart.innerHTML = "💗";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
-    document.body.appendChild(heart);
+let startY=0;
+let triggered=false;
 
-    setTimeout(() => heart.remove(), 7000);
-}
-setInterval(createHeart, 500);
+document.addEventListener("touchstart",e=>{
+    startY=e.touches[0].clientY;
+});
+document.addEventListener("touchend",e=>{
+    if(startY-e.changedTouches[0].clientY>80 && !triggered){
+        triggered=true;
+        reveal();
+    }
+});
+document.addEventListener("mousedown",e=>startY=e.clientY);
+document.addEventListener("mouseup",e=>{
+    if(startY-e.clientY>80 && !triggered){
+        triggered=true;
+        reveal();
+    }
+});
 
-// Stars
-for (let i = 0; i < 35; i++) {
-    const star = document.createElement("div");
-    star.className = "star";
-    star.style.top = Math.random() * 100 + "vh";
-    star.style.left = Math.random() * 100 + "vw";
-    star.style.animationDuration = (Math.random() * 2 + 1) + "s";
-    document.body.appendChild(star);
+function reveal(){
+    document.getElementById("start").style.transform="translateY(-100%)";
+    document.getElementById("messageScreen").style.transform="translateY(0)";
+
+    // Firecracker blast
+    for(let i=0;i<40;i++){
+        const s=document.createElement("div");
+        s.className="spark";
+        s.style.left="50%";
+        s.style.top="50%";
+        s.style.setProperty("--x",(Math.random()*300-150)+"px");
+        s.style.setProperty("--y",(Math.random()*300-150)+"px");
+        document.body.appendChild(s);
+        setTimeout(()=>s.remove(),1000);
+    }
+
+    // Hearts & flowers
+    setInterval(()=>{
+        const f=document.createElement("div");
+        f.className="float";
+        f.innerHTML=Math.random()>0.5?"💖":"🌸";
+        f.style.left=Math.random()*100+"vw";
+        f.style.animationDuration=(Math.random()*3+4)+"s";
+        document.body.appendChild(f);
+        setTimeout(()=>f.remove(),7000);
+    },400);
 }
 </script>
 
